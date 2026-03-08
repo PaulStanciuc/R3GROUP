@@ -1,228 +1,241 @@
 # R3GROUP — Katty Fashion Digital Manufacturing Platform
 
-> Katty Fashion pilot implementation for the **R3GROUP Horizon Europe project**, enabling resilient and rapidly reconfigurable garment production through Digital Twins and AAS-based manufacturing architecture.
+> Katty Fashion pilot implementation for the **R3GROUP Horizon Europe project**, enabling resilient and rapidly reconfigurable garment production through Digital Twins and digital manufacturing tools.
 
 ---
 
-# Quick Links
+## Quick Links
 
-- KF Team Dashboard  
-https://katty-fashion.github.io/kf-cpto/
-
-- Unified Kanban  
-https://katty-fashion.github.io/kf-cpto/unified-kanban.html
-
-- R3GROUP Project (CORDIS)  
-https://cordis.europa.eu/project/id/101091869
+| Resource | Link |
+|---|---|
+| KF Dashboard | [katty-fashion.github.io/kf-cpto](https://katty-fashion.github.io/kf-cpto/) |
+| Unified Kanban | [katty-fashion.github.io/kf-cpto/unified-kanban.html](https://katty-fashion.github.io/kf-cpto/unified-kanban.html) |
+| R3GROUP Project | [cordis.europa.eu/project/id/101091869](https://cordis.europa.eu/project/id/101091869) |
 
 ---
 
-# Project Overview
+## Overview
 
-**R3GROUP (Resilient Rapid Reconfigurable Production Process Chains)** is a Horizon Europe research project aimed at enabling **flexible, digital, and resilient manufacturing ecosystems**.
+**R3GROUP (Resilient Rapid Reconfigurable Production Process Chains)** is a Horizon Europe project that develops technologies for **resilient, digitally integrated manufacturing systems**.
 
-The project focuses on:
+The project aims to improve industrial production by enabling:
 
-- rapid reconfiguration of production systems
-- digital integration between design and manufacturing
-- interoperability across supply chain partners
-- human-centered manufacturing environments.
+- rapid reconfiguration of production lines
+- integration of digital twins across manufacturing systems
+- real-time monitoring and control of production processes
+- interoperability between production assets using **Asset Administration Shell (AAS)** standards
+- improved collaboration across the supply chain
 
-The **Katty Fashion pilot** demonstrates these capabilities within the **garment manufacturing industry**, integrating digital tools across the full product lifecycle.
+The **Katty Fashion pilot** focuses on applying these technologies to the **garment manufacturing industry**, connecting product design with manufacturing preparation and production planning.
 
 ---
 
-# Core Digital Concepts
-
-The platform integrates several Industry 4.0 concepts:
+## Core Digital Concepts
 
 ### Digital Twin
-Digital representation of:
 
-- garments
-- manufacturing processes
-- production resources
+A **Digital Twin** is a digital representation of a physical object or process.
+
+In R3GROUP this includes:
+
+- product digital twins
+- process digital twins
+- production system digital twins
+
+Digital twins allow simulation, monitoring and optimization of manufacturing workflows.
+
+---
 
 ### Asset Administration Shell (AAS)
 
-Standardized digital interface representing assets in the manufacturing system.
+The **Asset Administration Shell (AAS)** is a standardized digital interface used to represent manufacturing assets.
 
-Allows interoperability between:
+It enables interoperability between:
 
 - machines
-- software systems
-- digital twins.
+- software platforms
+- digital twins
+- production systems
+
+---
 
 ### Digital Thread
 
-Continuous data flow connecting:
+The **Digital Thread** represents the continuous data flow that connects:
 
-- design
+- product design
 - production planning
 - manufacturing execution
-- product lifecycle monitoring.
+- product lifecycle monitoring
+
+This digital connectivity enables data-driven decision making and faster production adaptation.
 
 ---
 
-# Platform Architecture
+## Platform Architecture
 
-## System Architecture Overview
+### System Architecture Overview
 
 ```mermaid
 graph TD
-
-A[Designer] --> B[Co-Creation Platform]
-B --> C[API Gateway]
-
-C --> D[Product Digital Twin]
-C --> E[Process Digital Twin]
-C --> F[Capacity Planner]
-
-D --> G[(Digital Product Data)]
-E --> H[(Process Models)]
-F --> I[(Planning Database)]
-
-D --> J[AAS Layer]
-E --> J
-F --> J
-
-J --> K[Manufacturing Systems]
+    Designer --> CoCreation
+    CoCreation --> API
+    API --> ProductTwin
+    API --> ProcessTwin
+    API --> Planner
+    ProductTwin --> ProductDB[(Product Data)]
+    ProcessTwin --> ProcessDB[(Process Data)]
+    Planner --> PlanningDB[(Planning Database)]
+    ProductTwin --> AAS
+    ProcessTwin --> AAS
+    Planner --> AAS
+    AAS --> ManufacturingSystems
+```
 
 ---
 
-# Main Platform Components
+### Main Platform Components
 
-## 1. Co-Creation Platform
+#### 1. Co-Creation Platform
 
-Collaborative workspace where stakeholders can:
+The Co-Creation Platform provides a collaborative environment where designers, suppliers and manufacturers can work together on product development.
 
-- define product specifications
-- exchange design information
-- coordinate manufacturing requirements
-- track order lifecycle.
+Capabilities include:
 
-Supports collaboration between:
+- product specification management
+- technical pack exchange
+- design collaboration
+- order lifecycle tracking
 
-- designers
-- suppliers
-- manufacturers.
-
-The platform enables digital collaboration across the product lifecycle and connects design activities with manufacturing preparation.
+The platform improves communication between stakeholders and supports collaborative decision-making across the production workflow.
 
 ---
 
-## 2. Product Digital Twin
+#### 2. Product Digital Twin
 
-The **Product Digital Twin** represents the digital identity of each garment.
+The Product Digital Twin represents each garment as a digital object.
 
 It includes:
 
 - design specifications
-- material data
-- technical packs
-- production parameters.
+- material information
+- technical documentation
+- manufacturing parameters
 
-### Benefits
+**Benefits:**
 
-- lifecycle traceability
-- centralized digital product documentation
-- interoperability between design and manufacturing tools
-- consistent data exchange across systems.
-
-The digital twin allows product information to remain synchronized across the entire manufacturing workflow.
+- centralized product documentation
+- traceability across the product lifecycle
+- improved collaboration between design and production teams
+- digital integration of design and manufacturing data
 
 ---
 
-## 3. Process Digital Twin
+#### 3. Process Digital Twin
 
-The **Process Digital Twin** models the manufacturing process itself.
+The Process Digital Twin models manufacturing workflows and production systems.
 
-It is used for:
+It supports:
 
 - production simulation
 - capacity analysis
 - workflow optimization
-- reconfiguration planning.
+- production reconfiguration planning
 
-This allows planners to simulate manufacturing scenarios before execution and evaluate potential changes to production workflows.
+By simulating different production scenarios, the process digital twin helps manufacturers evaluate the impact of production changes before implementing them.
 
 ---
 
-## 4. Technician Capacity Planner
+#### 4. Technician Capacity Planner
 
-The **Technician Capacity Planner** is designed to assist the **development manager and technician department**.
+The Technician Capacity Planner is a scheduling tool designed for the technician department at Katty Fashion.
 
-### Core functions
+It helps the development manager plan preparation activities required before manufacturing begins.
+
+**Core functions:**
 
 - technician workload visualization
 - scheduling production preparation tasks
 - evaluating department capacity
-- adapting planning based on order changes.
+- adapting planning based on order changes
 
-### Interface capabilities
+**Interface features:**
 
 - interactive planning calendar
 - workload indicators
 - drag-and-drop scheduling
-- dynamic resource allocation.
+- dynamic resource allocation
 
-The tool helps optimize preparation activities required before production begins.
+The system centralizes technician scheduling data in a unified interface and enables dynamic rescheduling based on operational events such as delays or resource availability changes.
 
 ---
 
-# Microservice Architecture
+### Microservice Architecture
 
 ```mermaid
 graph TD
+    API[API Gateway]
+    API --> CC[Co-Creation Service]
+    API --> PDT[Product Digital Twin]
+    API --> PRDT[Process Digital Twin]
+    API --> CP[Capacity Planner]
+    CC --> DB[(PostgreSQL)]
+    PDT --> DB
+    PRDT --> DB
+    CP --> DB
+    CC --> MQ[RabbitMQ]
+    PDT --> MQ
+    PRDT --> MQ
+    CP --> MQ
+    DB --> STORAGE[File Storage]
+```
 
-API[API Gateway]
+---
 
-API --> CC[Co-Creation Service]
-API --> PDT[Product Digital Twin]
-API --> PRDT[Process Digital Twin]
-API --> CP[Capacity Planner]
+### Data Flow
 
-CC --> DB[(PostgreSQL)]
-PDT --> DB
-PRDT --> DB
-CP --> DB
+```mermaid
+sequenceDiagram
+    participant Designer
+    participant Platform
+    participant DigitalTwin
+    participant Planner
+    participant Manufacturing
+    Designer->>Platform: Submit product design
+    Platform->>DigitalTwin: Create product digital twin
+    DigitalTwin->>Planner: Request planning evaluation
+    Planner->>Planner: Calculate capacity
+    Planner-->>Platform: Production feasibility
+    Platform-->>Designer: Production schedule
+    Planner->>Manufacturing: Send planning data
+```
 
-CC --> MQ[RabbitMQ]
-PDT --> MQ
-PRDT --> MQ
-CP --> MQ
+---
 
-DB --> STORAGE[File Storage]
+## Kanban Management
 
-## Data Flow 
-### sequenceDiagram
+This repository integrates with the [KF-CPTO](https://katty-fashion.github.io/kf-cpto/) Git-native project management dashboard.
 
-participant Designer
-participant Platform
-participant DigitalTwin
-participant Planner
-participant Manufacturing
+The project uses a `kanban.md` file as the single source of truth for task tracking.
 
-Designer->>Platform: Submit product design
-Platform->>DigitalTwin: Create product digital twin
-DigitalTwin->>Planner: Request planning evaluation
-Planner->>Planner: Calculate capacity
-Planner-->>Platform: Production feasibility
-Platform-->>Designer: Production schedule
+Updating this file automatically updates:
 
-Planner->>Manufacturing: Send planning data
+- unified Kanban board
+- sprint calendar
+- LOE reports
+- dependency graph
+
+---
 
 ## Development
 
 ### Prerequisites
 
-```
-Node.js 20+
-Python 3.11+
-Docker
-Docker Compose
-Kubernetes (optional)
-```
+- Node.js 20+
+- Python 3.11+
+- Docker
+- Docker Compose
+- Kubernetes *(optional)*
 
 ### Setup
 
@@ -245,36 +258,16 @@ docker compose up
 
 ---
 
-## Kanban Management
-
-This repository integrates with the **KF-CPTO Git-native project management dashboard**.
-
-The project uses:
-
-```
-kanban.md
-```
-
-as the single source of truth for task tracking.
-
-Updating this file automatically updates:
-
-- unified Kanban board
-- sprint calendar
-- LOE reports
-- dependency graph
-
----
-
 ## Repository Structure
 
 ```
 r3group-kf/
-
+│
 ├── kanban.md
 ├── README.md
-├── .github/workflows/
-│   └── notify-kf-cpto.yml
+├── .github/
+│   └── workflows/
+│       └── notify-kf-cpto.yml
 │
 ├── src/
 │   ├── api/
@@ -305,25 +298,26 @@ r3group-kf/
 
 ## Project Information
 
-| | |
+| Field | Details |
 |---|---|
 | **Project** | R3GROUP |
-| **Full name** | Resilient Rapid Reconfigurable Production Process Chains |
+| **Full Name** | Resilient Rapid Reconfigurable Production Process Chains |
 | **Programme** | Horizon Europe |
 | **Grant Agreement** | 101091869 |
 
-The project develops technologies enabling rapidly reconfigurable manufacturing systems using digital twins and advanced digital platforms.
+The project develops technologies that enable rapidly reconfigurable manufacturing systems using digital platforms, digital twins and advanced planning tools.
 
-The Katty Fashion pilot demonstrates these technologies in the garment manufacturing industry.
+The Katty Fashion pilot demonstrates these technologies in the garment manufacturing sector, integrating product design, production preparation and manufacturing processes through digital tools.
 
 ---
 
-## Part of the Katty Fashion Digital Manufacturing Ecosystem
+## Ecosystem
+
+*Part of the Katty Fashion Digital Manufacturing Ecosystem.*
 
 Connected projects include:
 
 - AI-RISE
-- NUOFORM
 - AI-REGIO
+- NUOFORM
 - Waste Management Platform
-
