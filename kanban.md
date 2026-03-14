@@ -4,10 +4,11 @@ description: "R3GROUP Katty Fashion pilot – digital tools for co-creation, dig
 type: eu-project
 
 team:
-  po: ps.tech@katty-fashion.ro
-  tech_lead: el.tech@katty-fashion.ro
-  frontend: alexandru.bejenari@katty-fashion.ro
-  backend: razvan.boita@katty-fashion.ro
+CPTO: el.tech@katty-fashion.ro
+Tech Lead: eduard.modreanu@katty-fashion.ro   
+Front-End: alexandru.bejenari@katty-fashion.ro  
+Back-End: razvan.boita@katty-fashion.ro 
+Product Owner: ps.tech@katty-fashion.ro 
 
 sprint: S1
 sprint_start: 2026-03-02
